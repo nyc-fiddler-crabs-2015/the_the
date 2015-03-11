@@ -11,6 +11,17 @@ $(document).ready(function(){
     renderPartial('.signup');
   })
 
+  $(document).on('submit', '.login_form', function(event){
+    event.preventDefault();
+    loginValidation('.login_form')
+  })
+
+  $(document).on('submit', '.signup_form', function(event){
+    event.preventDefault();
+    loginValidation('.signup_form')
+  })
+
+
 
 
 
