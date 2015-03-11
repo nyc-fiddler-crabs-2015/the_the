@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel='stylesheet' href='/stylesheets/normalize.css' type='text/css' /> 
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <link rel='stylesheet' href='/stylesheets/normalize.css' type='text/css' />
   <link rel='stylesheet' href='/stylesheets/application.css' type='text/css' />
+  <script src='javascripts/auth.js'></script>
   <script src='javascripts/application.js'></script>
-  <title><%= @title || "LightSaber" %></title>
+  <title><%= @title || "The" %></title>
 </head>
 <body>
+  <header class="banner">
+    <%if session[:user_id]%>
+      <a href="/logout"> Logout </a>
+    <% else %>
+      <a href="#"> About </a>
+      <a href="/login" class="login"> Login </a>
+      <a href="/signup" class="signup"> Signup </a>
+    <%end%>
+  </header>
     <%= yield %>
 </body>
 </html>

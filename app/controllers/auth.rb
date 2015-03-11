@@ -1,7 +1,6 @@
 get '/login' do
   if request.xhr?
-    content_type :json
-    erb :login, layout:false
+    erb :login, layout: false
   else
     erb :login
   end
@@ -32,7 +31,6 @@ end
 
 get '/signup' do
   if request.xhr?
-    content_type :json
     erb :signup, layout: false
   else
     erb :signup
