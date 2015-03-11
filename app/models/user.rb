@@ -1,8 +1,5 @@
-class User
-  attr_reader :name, :password
-
-  def initialize(args)
-    @name = args[:name]
-    @password = args[:password]
-  end
+class User < ActiveRecord::Base
+  has_secure_password
+  has_many :lyrics
+  has_many :votes
 end
