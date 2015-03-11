@@ -2,21 +2,30 @@
 <html lang="en">
 <head>
   <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'/>
   <link rel='stylesheet' href='/stylesheets/normalize.css' type='text/css' />
   <link rel='stylesheet' href='/stylesheets/application.css' type='text/css' />
-  <script src='javascripts/auth.js'></script>
-  <script src='javascripts/application.js'></script>
+  <script src='/javascripts/model.js'></script>
+  <script src='/javascripts/lyrics.js'></script>
+  <script src='/javascripts/auth.js'></script>
+  <script src='/javascripts/application.js'></script>
   <title><%= @title || "The" %></title>
 </head>
 <body>
-  <header class="banner">
+  <header>
     <h1> The ... </h1>
+    <i> 'where creativity is fostered'</i>
     <%if session[:user_id]%>
+    <div class="banner">
+      <a href="/users/<%=session[:user_id]%>" class="profile_anchor"> My profile </a>
+      <a class="songs_anchor" href="/songs"> All songs </a>
+      <a href="/songs/best_of" class="bestof_anchor"> They made it </a>
       <a href="/logout"> Logout </a>
     <% else %>
       <a href="#"> About </a>
       <a href="/login" class="login"> Login </a>
       <a href="/signup" class="signup"> Signup </a>
+    </div>
     <%end%>
   </header>
     <%= yield %>

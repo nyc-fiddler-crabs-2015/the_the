@@ -4,6 +4,8 @@ class CreateLyrics < ActiveRecord::Migration
       t.references :song
       t.references :user
       t.text :text
+
+      t.timestamps
     end
   end
 end
