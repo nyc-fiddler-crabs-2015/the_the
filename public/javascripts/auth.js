@@ -1,13 +1,4 @@
-var renderPartial = function(className){
-  var url = $(className).attr('href');
-  $.get(url, function(response){
-    $('.container').html(response);
-  })
-};
 
-var errorTemplate = function(message){
-  return '<div class="error">%s</div>',[message];
-};
 var loginValidation = function(className){
   console.log('here')
   var url = $(className).attr('action');
@@ -22,9 +13,9 @@ var loginValidation = function(className){
     error: function(jqXHR){
       console.log("failure")
       if(jqXHR.status==401){
-        $('.container').append(errorTemplate('Unmatching Email/password'))
+        $('.error').text('Unmatching Email/password')
       }else if(jqXHR.status==400){
-        $('.container').append(errorTemplate('Passwords do not match'))
+        $('.error').text('Passwords do not match')
       }
     }
 

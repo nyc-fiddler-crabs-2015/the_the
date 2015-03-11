@@ -6,23 +6,12 @@ get '/login' do
   end
 end
 
-
-# post '/login' do
-#   user = User.find_by(username: params[:username])
-#   if user && user.try(:authenticate, params[:password])
-#     session[:user_id] = user.id
-#     redirect '/songs'
-#   else
-#     redirect '/'
-#   end
-# end
-
 post '/login' do
   user = User.find_by(username: params[:username])
   if user && user.try(:authenticate, params[:password])
     content_type :json
     session[:user_id] = user.id
-    {location: '/songs'}.to_json
+    {location: '/songs/best_of'}.to_json
   else
     401
   end
@@ -37,28 +26,14 @@ get '/signup' do
   end
 end
 
-# post '/signup' do
-#   password     = params[:password]
-#   confirmation = params[:password_confirmation]
-#   user = User.new(email: params[:email], username: params[:username], password: password)
-#   if user.save && password == confirmation
-#     session[:user_id] = user.id
-#     redirect '/songs'
-#   elsif password != confirmation
-#     redirect '/'
-#   else
-#     redirect '/'
-#   end
-# end
-
 post '/signup' do
   password     = params[:password]
   confirmation = params[:password_confirmation]
   user = User.new(email: params[:email], username: params[:username], password: password)
-  if user.save && password == confirmation
+  if password == confirmation && user.save
     content_type :json
     session[:user_id] = user.id
-    {location: '/songs'}.to_json
+    {location: '/songs/best_of'}.to_json
   elsif password != confirmation
     400
   end

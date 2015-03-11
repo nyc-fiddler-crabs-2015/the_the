@@ -6,6 +6,8 @@ class CreateSongs < ActiveRecord::Migration
       t.boolean :is_top
       t.references :artist
       t.references :lyric
+
+      t.timestamps
     end
   end
 end
