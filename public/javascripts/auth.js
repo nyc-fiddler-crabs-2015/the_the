@@ -1,6 +1,5 @@
 
 var loginValidation = function(className){
-  console.log('here')
   var url = $(className).attr('action');
   var data = $(className).serialize();
   $.ajax({
@@ -11,11 +10,13 @@ var loginValidation = function(className){
       window.location.replace(response.location)
     },
     error: function(jqXHR){
-      console.log("failure")
       if(jqXHR.status==401){
         $('.error').text('Unmatching Email/password')
       }else if(jqXHR.status==400){
         $('.error').text('Passwords do not match')
+      }else if(jqXHR.status==403){
+        console.log(jqXHR.status)
+        $('.error').text('Invalid Email')
       }
     }
 
