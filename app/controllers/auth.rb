@@ -29,9 +29,9 @@ end
 post '/signup' do
   password     = params[:password]
   confirmation = params[:password_confirmation]
-  is_valid = (params[:email]=~/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
+  is_valid     = (params[:email]=~/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
   user = User.new(email: params[:email], username: params[:username], password: password)
-  if password == confirmation && is_valid ==0 && user.save
+  if password  == confirmation && is_valid == 0 && user.save
     content_type :json
     session[:user_id] = user.id
     {location: '/songs/best_of'}.to_json

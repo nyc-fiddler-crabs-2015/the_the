@@ -32,24 +32,16 @@ $(document).ready(function(){
     $('.lyric').css('height', 'auto');
   } )
 
-
+  // Editing lyrics to create new lyrics out of them
   $(document).on('submit', '.new_lyrics', function(event){
     event.preventDefault();
     createLyrics('.new_lyrics', '.lyric', '.create_text','post' )
   })
+
   $(document).on('submit','.edit_lyrics', function(event){
     event.preventDefault();
     createLyrics('.edit_lyrics', '.lyric_display','.edit_text', 'put')
 
   })
-
-  $(document).on('click', '.upvote', function(event){
-    event.preventDefault();
-    var $target = $(event.target);
-    var url = $target.attr('href');
-    upVote(url);
-  })
-
-
 
 })

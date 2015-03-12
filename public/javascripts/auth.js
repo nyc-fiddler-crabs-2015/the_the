@@ -15,7 +15,6 @@ var loginValidation = function(className){
       }else if(jqXHR.status==400){
         $('.error').text('Passwords do not match')
       }else if(jqXHR.status==403){
-        console.log(jqXHR.status)
         $('.error').text('Invalid Email')
       }
     }

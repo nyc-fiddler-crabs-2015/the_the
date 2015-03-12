@@ -1,25 +1,26 @@
 <div class="container_body">
 
   <h2><%= @lyric.get_song.title%></h2>
+
   <iframe width="100%" height="35px" scrolling="no" frameborder="no" src="<%= @lyric.get_song.url%>">
   </iframe>
 
-    <div class="lyric_display" contenteditable="true">
-      <%=@lyric.text%>
-    </div>
+  <div class="lyric_display" contenteditable="true">
+    <%=@lyric.text%>
+  </div>
 
-    <% if @user.id == session[:user_id]%>
-      <form action="/lyrics/<%=@lyric.id%>/edit" method="post" class="edit_lyrics">
-        <input type="hidden" name="_method" value="put">
-        <input type="text" name="lyrics" style="display:none" class="edit_text">
-        <input type="text" name="lyric" value="<%=@lyric.id%>" style="display:none"><br>
-        <input type="submit" value="Edit">
-      </form>
+  <% if @user.id == session[:user_id]%>
+    <form action="/lyrics/<%=@lyric.id%>/edit" method="post" class="edit_lyrics">
+      <input type="hidden" name="_method" value="put">
+      <input type="text" name="lyrics" style="display:none" class="edit_text">
+      <input type="text" name="lyric" value="<%=@lyric.id%>" style="display:none"><br>
+      <input type="submit" value="Edit">
+    </form>
 
-      <form action="/lyrics/<%=@lyric.id%>/delete" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="delete">
-      </form>
-    <%end%>
-</div>
+    <form action="/lyrics/<%=@lyric.id%>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+  <%end%>
+
 </div>

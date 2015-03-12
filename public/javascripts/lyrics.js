@@ -1,7 +1,6 @@
 var createLyrics = function(formName, editableContent, hiddenInput, type){
   var value = $(editableContent).text().replace(/\n/g,"<br />");
   $(hiddenInput).attr('value', value);
-  console.log($(hiddenInput))
   var data = $(formName).serialize();
   var url = $(formName).attr('action');
   $.ajax({

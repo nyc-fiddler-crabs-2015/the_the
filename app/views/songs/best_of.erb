@@ -1,14 +1,15 @@
 <div class="container_body">
-<h1> The best of ! </h1>
-<i> Those songs have made it, when will you ? </i>
+  <h1> The best of ! </h1>
+  <i> Those songs have made it, when will you ? </i>
 
-<%@songs.each do |song| %>
-  <div class="song">
-    <h3><%= song.title %></h3>
-    <div class="soundcloud">
-      <iframe width="100%" height="35px" scrolling="no" frameborder="no" src="<%=song.url%>"></iframe>
+  <%@songs.each do |song| %>
+    <div class="song">
+      <h3><%= song.title %></h3>
+      <div class="soundcloud">
+        <iframe width="100%" height="35px" scrolling="no" frameborder="no" src="<%=song.url%>"></iframe>
+      </div>
+
     </div>
+  <%end%>
 
-  </div>
-<%end%>
 </div>

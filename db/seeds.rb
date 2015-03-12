@@ -1,4 +1,4 @@
-require_relative '../spec/lyric_template'
+require_relative 'lyric_template'
 user = User.create(username: "rayanbouts", email: 'rayanbouts@gmail.com', password: "123")
 eminem = Artist.create(name: "Eminem", photo_url: "http://make-me-successful.com/wp-content/uploads/2013/08/shady.jpg")
 other_song= Song.create(title: "Lose Your Spaghettis", url: "https://www.youtube.com/embed/SW-BU6keEUw", is_top: true)
