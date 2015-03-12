@@ -17,6 +17,8 @@ var loginValidation = function(className){
       }else if(jqXHR.status==403){
         console.log(jqXHR.status)
         $('.error').text('Invalid Email')
+      }else if(jqXHR.status == 500){
+        $('.error').text('Email/Username already registered')
       }
     }
 

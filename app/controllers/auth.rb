@@ -37,8 +37,10 @@ post '/signup' do
     {location: '/songs/best_of'}.to_json
   elsif password != confirmation
     400
-  else
+  elsif is_valid !=0
     403
+  else
+    500
   end
 end
 
