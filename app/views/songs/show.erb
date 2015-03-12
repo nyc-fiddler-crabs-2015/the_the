@@ -3,14 +3,14 @@
   <h1><%= @song.title%></h1>
   <i> Click on text to edit </i>
   <div class="container">
-  <div class="lyric" contenteditable="true">
-    <%= @song.get_lyrics%>
-  </div>
-  <form action="/lyrics/new" method="post" class="new_lyrics">
-    <input type="text" name="lyrics" style="display:none" class="create_text">
-    <input type="text" name="song" value="<%=@song.id%>" style="display:none"><br>
-    <input type="submit">
-  </form>
+    <div class="lyric" contenteditable="true">
+      <%= @song.get_lyrics%>
+    </div>
+    <form action="/lyrics/new" method="post" class="new_lyrics">
+      <input type="text" name="lyrics" style="display:none" class="create_text">
+      <input type="text" name="song" value="<%=@song.id%>" style="display:none"><br>
+      <input type="submit">
+    </form>
   </div>
 
 </div>

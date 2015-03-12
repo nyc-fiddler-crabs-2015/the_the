@@ -1,12 +1,10 @@
-require File.expand_path '../spec_helper.rb', __FILE__
-require_relative 'lyric_template'
-
+require File.expand_path '../../spec_helper.rb', __FILE__
+require_relative '../../db/lyric_template'
 describe "Database" do
   let(:user){User.create(username: "rayanbouts", email: 'rayanbouts@gmail.com', password: "123")}
   let(:eminem){Artist.create(name: "Eminem", photo_url: "http://make-me-successful.com/wp-content/uploads/2013/08/shady.jpg")}
   let(:song){Song.create(title: "Lose Yourself", artist: eminem, url: "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/75095796&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true", is_top: true)}
   let(:lyric){Lyric.create(song: song, user: user, text: @loose_text)}
-  let(:vote){Vote.create(lyric: lyric, user: user)}
 
   it 'creates a user with a secure password' do
     user
@@ -42,11 +40,6 @@ describe "Database" do
     expect(song.lyric).to eq(nil)
   end
 
-  it 'creates a vote to a lyric' do
-    vote
-    expect(vote.lyric).to be(lyric)
-    expect(vote.user).to be(user)
-  end
 end
 
 

@@ -1,5 +1,5 @@
 post '/lyrics/new' do
-  song = Song.find(params[:song].to_i)
+  song   = Song.find(params[:song].to_i)
   lyrics = Lyric.create(user_id: session[:user_id],song: song, text: params[:lyrics] )
   new_url = "/users/#{session[:user_id]}/lyrics/#{lyrics.id}"
   content_type :json
@@ -23,7 +23,7 @@ put '/lyrics/:lyric_id/edit' do
 end
 
 delete '/lyrics/:lyric_id/delete' do
-  user = User.find(session[:user_id])
+  user  = User.find(session[:user_id])
   lyric = Lyric.find(params[:lyric_id])
   if user && user.id == lyric.user.id
     lyric.delete
