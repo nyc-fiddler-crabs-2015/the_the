@@ -44,3 +44,15 @@ body {
 .error{
   color:red;
 }
+
+.hey {
+  position:center;
+  margin:auto;
+  margin-top: 10%;
+}
+
+.hey input{
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: inline;
+}
