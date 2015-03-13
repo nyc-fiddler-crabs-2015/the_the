@@ -16,6 +16,8 @@ var loginValidation = function(className){
         $('.error').text('Passwords do not match')
       }else if(jqXHR.status==403){
         $('.error').text('Invalid Email')
+      }else if(jqXHR.status == 500){
+        $('.error').text('Email/Username already registered')
       }
     }
 
