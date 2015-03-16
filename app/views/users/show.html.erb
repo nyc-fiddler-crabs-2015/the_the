@@ -1,0 +1,26 @@
+<div class="container_body">
+<% if @user.id == session[:user_id]%>
+  <h1> Welcome to your playlist</h1>
+<%else%>
+  <h1> Welcome to <%= @user.username %>'s profile </h1>
+  <i> Check those sick remixes and sing along </i>
+<%end%>
+
+<%=session[:user_id]%>
+
+<%@lyrics.each do |lyric| %>
+  <div class="container">
+   <h2> <%= lyric.get_song.title%></h2>
+    <iframe width="100%" height="35px" scrolling="no" frameborder="no" src="<%= lyric.get_song.url%>"></iframe>
+    <% if session[:user_id] == @user.id%>
+      <a href="/lyrics/<%=lyric.id%>/edit">Edit</a>
+    <%end%>
+
+    <div class="lyric_display">
+      <%=lyric.text.html_safe%>
+    </div>
+
+   </div>
+
+<%end%>
+</div>

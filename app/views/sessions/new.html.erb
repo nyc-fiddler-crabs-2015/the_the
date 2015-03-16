@@ -1,0 +1,8 @@
+<%= form_tag("/sessions", method: "post", class: 'new_session') do %>
+  <%= text_field(:user, :username, :placeholder=> 'Username') %>
+  <%= password_field(:user, :password, :placeholder => 'Password') %>
+  <%= submit_tag("Login") %>
+<% end %>
+
+<div class="error">
+</div>

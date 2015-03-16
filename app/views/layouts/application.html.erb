@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TheThe</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1> The ... </h1>
+    <i> 'where creativity is fostered'</i>
+
+    <%if session[:user_id]%>
+      <div class="banner">
+        <a href="/users/<%=session[:user_id]%>" class="profile_anchor"> My profile </a>
+        <a class="songs_anchor" href="/songs"> All songs </a>
+        <a href="/songs/best_of" class="bestof_anchor"> They made it </a>
+        <a href="/logout" class="logout"> Logout </a>
+        <%=render 'sessions/destroy.html.erb'%>
+    <% else %>
+        <a href="about" class="about"> About </a>
+        <a href="/sessions/new" class="login"> Login </a>
+        <a href="/users/new" class="signup"> Signup </a>
+    <%end%>
+      </div>
+    </header>
+
+   <%= yield %>
+
+</body>
+</html>
