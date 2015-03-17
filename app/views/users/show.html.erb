@@ -10,7 +10,6 @@
 
 <%@lyrics.each do |lyric| %>
   <div class="container">
-    <%# lyric.song.title %>
    <h2> <%= lyric.get_song.title%></h2>
     <iframe width="100%" height="35px" scrolling="no" frameborder="no" src="<%= lyric.get_song.url%>"></iframe>
     <% if session[:user_id] == @user.id%>

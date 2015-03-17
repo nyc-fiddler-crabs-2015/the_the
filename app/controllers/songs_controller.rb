@@ -1,7 +1,10 @@
 class SongsController < ApplicationController
   def index
-    # Migrate this to a model
-    render :json => {songs: Song.no_wanted}
+    if request.xhr?
+      render :json => {songs: Song.no_wanted}
+    else
+      @songs = Song.no_wanted
+    end
   end
 
   def best_of
