@@ -1,14 +1,14 @@
 $(document).ready(function(){
   // auth
-  // $(document).on('click', '.login', function(event){
-  //   event.preventDefault();
-  //   renderPartial('.login', 'href');
-  // })
+  $(document).on('click', '.login', function(event){
+    event.preventDefault();
+    renderPartial('.login', 'href');
+  })
 
-  // $(document).on('click', '.signup', function(event){
-  //   event.preventDefault();
-  //   renderPartial('.signup', 'href');
-  // })
+  $(document).on('click', '.signup', function(event){
+    event.preventDefault();
+    renderPartial('.signup', 'href');
+  })
 
   $(document).on('click', '.about', function(event){
     event.preventDefault();
@@ -28,6 +28,16 @@ $(document).ready(function(){
   $(document).on('click', '.logout', function(event){
     event.preventDefault();
     $('.button_to').submit();
+  })
+
+  $(document).on('click', 'a.bestof_anchor', function(event){
+    event.preventDefault();
+    renderJSON(event);
+  })
+
+  $(document).on('click', 'a.songs_anchor', function(event){
+    event.preventDefault();
+    renderJSON(event);
   })
 
   // // all songs page

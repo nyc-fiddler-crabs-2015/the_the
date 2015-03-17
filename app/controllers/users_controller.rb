@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    render layout: false
   end
 
   def create
-    puts "it was in the create"
     user         = params[:user].to_hash
     password     = user[:password]
     confirmation = user[:password_confirmation]
