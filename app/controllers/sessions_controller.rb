@@ -5,8 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-     hey = params[:user]
-     user = User.find_by(username: hey[:username])
+    user = User.find_by(username: params[:user][:username])
     if user && user.try(:authenticate, hey[:password])
       session[:user_id] = user.id
       render :json => {location: '/songs'}

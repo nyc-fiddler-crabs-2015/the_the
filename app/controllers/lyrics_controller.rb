@@ -1,10 +1,8 @@
 class LyricsController < ApplicationController
 
   def create
-    lyric  = params[:lyric]
-    song   = Song.find(lyric[:song].to_i)
-    lyrics = song.lyrics.create(user_id: session[:user_id], text: lyric[:text] )
-    redirect_to "/users/#{session[:user_id]}"
+    Song.find(lyric_params[:song]).song.lyrics.create(user_id: session[:user_id], text: lyric_params[:text] )
+    redirect_to user_home
   end
 
 
@@ -20,11 +18,17 @@ class LyricsController < ApplicationController
   def update
     @lyric = Lyric.find(params[:id])
     @lyric.update_attributes(text: params[:lyric])
-    redirect_to "/users/#{session[:user_id]}"
+    redirect_to user_home
   end
 
   def destroy
     Lyric.delete(params[:id])
-    redirect_to "/users/#{session[:user_id]}"
+    redirect_to user_home
+  end
+
+  private
+
+  def lyric_params
+    params.require(:lyric).permit(:text, :song)
   end
 end

@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
     render :layout => false
   end
 
+  protected
+
+    def user_home
+      raise "User is not signed in" unless session[:user_id]
+      session_path(session[:user_id])
+    end
 end

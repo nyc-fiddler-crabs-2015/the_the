@@ -1,3 +1,4 @@
 <div style="display:none">
-  <%= button_to 'Logout', "/sessions/#{session[:user_id]}", :method => :delete%>
+<%# named route... %>
+  <%= button_to 'Logout', session_path(session[:user_id]), :method => :delete%>
 </div>
