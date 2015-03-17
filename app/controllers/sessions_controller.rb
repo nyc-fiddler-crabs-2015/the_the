@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    render layout: false
   end
 
   def create
@@ -10,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       render :json => {location: '/songs'}
     else
-      render :json =>{errors: "hey"}, :status => 401
+      render :json => {errors: "Username/Password do not match"}, :status => 401
     end
   end
 

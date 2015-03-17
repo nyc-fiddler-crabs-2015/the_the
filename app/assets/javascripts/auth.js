@@ -9,8 +9,8 @@ var loginValidation = function(className){
       window.location.replace(response.location)
     },
     error: function(jqXHR){
-      var hey = JSON.parse(jqXHR.responseText)
-      $('.error').text(hey.errors)
+      var h = JSON.parse(jqXHR.responseText)
+      $('.error').text(h.errors)
     }
 
   })
