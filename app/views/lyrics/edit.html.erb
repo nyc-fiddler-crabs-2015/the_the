@@ -15,6 +15,7 @@
         <%= f.submit %>
       <% end %>
 
+      <%# you can use a named route helper here... %>
       <%= form_tag("/lyrics/#{@lyric.id}", method: "delete") do %>
         <%=submit_tag('Delete') %>
       <%end%>

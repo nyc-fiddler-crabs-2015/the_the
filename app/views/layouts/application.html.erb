@@ -11,6 +11,7 @@
     <h1> The ... </h1>
     <i> 'where creativity is fostered'</i>
 
+    <%# use your form helpers here....and named routes %>
     <%if session[:user_id]%>
       <div class="banner">
         <a href="/users/<%=session[:user_id]%>" class="profile_anchor"> My profile </a>

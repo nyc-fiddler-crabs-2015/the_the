@@ -8,6 +8,7 @@
   </div>
 
   <%= form_for @lyric do |f| %>
+    <%# NO.  hidden_field helper %>
     <%= f.text_field :text,:style => "display:none", class: 'create_text' %>
     <%= f.text_field :song, :style => "display:none", :value => @song.id %>
     <%= f.submit %>
